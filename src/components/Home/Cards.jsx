@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
 
 
-export default function Cards({home}) {
+export default function Cards({home, setInputModal}) {
     const data = [
         {
             title:"Haryana Post 1",
@@ -49,10 +49,10 @@ export default function Cards({home}) {
         </div>
       ))}
       { home === "true" && (
-        <div className='bg-gray-800 rounded-xl flex flex-col justify-center items-center text-center text-xl hover:scale-105 hover:cursor-pointer transation-all duration-300'>
+        <button onClick={()=> setInputModal('fixed') } className='bg-gray-800 rounded-xl flex flex-col justify-center items-center text-center text-xl hover:scale-105 hover:cursor-pointer transation-all duration-300'>
           <IoMdAdd className='text-center text-3xl'/>
           Add New
-        </div>
+        </button>
       )}
     </div>
   )
