@@ -24,7 +24,7 @@ export default function Sidebar() {
     {
       title: "Important Tasks",
       icons: <CgNotes />,
-      link: "/incompleted-tasks",
+      link: "/important-tasks",
     },
     {
       title: "Completed Tasks",
@@ -34,7 +34,7 @@ export default function Sidebar() {
     {
       title: "Incompleted Tasks",
       icons: <CgNotes />,
-      link: "/important-tasks",
+      link: "/incompleted-tasks",
     },
   ];
 

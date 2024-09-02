@@ -7,11 +7,14 @@ import InputData from "../components/InputData";
 export default function AllTasks() {
   const [inputModal, setInputModal] = useState("hidden");
   const [dataItems, setDataItems] = useState({});
+  const [updateData, setUpdateData] = useState({ id: "", title: "", desc: "" });
+  const [createForm, setCreateForm] = useState(true);
 
   const headers = {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
   };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,7 +28,7 @@ export default function AllTasks() {
       }
     };
     fetchData();
-  }, []);
+  }, [headers]);
 
   return (
     <>
@@ -41,10 +44,17 @@ export default function AllTasks() {
             home="true"
             setInputModal={setInputModal}
             data={dataItems.tasks}
+            setUpdateData={setUpdateData}
+            setCreateForm={setCreateForm}
           />
         )}
       </div>
-      <InputData inputModal={inputModal} setInputModal={setInputModal} />
+      <InputData
+        inputModal={inputModal}
+        setInputModal={setInputModal}
+        updateData={updateData}
+        createForm={createForm}
+      />
     </>
   );
 }
